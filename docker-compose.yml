@@ -1,0 +1,15 @@
+services:
+  webserver:
+   
+    image: httpd:alpine
+    container_name: sample_website
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+      - "8080:80"
+    volumes:
+      - "./website:/usr/local/apache2/htdocs/"
+
+networks:
+  mynetwork:
