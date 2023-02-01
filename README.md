@@ -35,7 +35,9 @@ docker-compose version
 
 Create a project directory, create a docker-compose.yml file and download a sample HTML website
 
-mkdir compose-project; cd compose-project; touch docker-compose.yml;
+mkdir compose-project; cd compose-project; 
+git clone https://github.com/sreenidhiramachandran/html_website_using_docker_compose.git
+
 wget https://www.tooplate.com/zip-templates/2121_wave_cafe.zip; unzip 2121_wave_cafe.zip; mv 2121_wave_cafe website; rm 2121_wave_cafe.zip;
 
 [ec2-user@ip-172-31-45-117 compose-project]$ docker-compose up -d
