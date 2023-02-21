@@ -7,40 +7,78 @@ Docker compose is a tool for defining and running multi-container Docker applica
 Features
 
 
-Step 1:
-Install docker
-
+## Step 1: Install docker
+```sh
 sudo yum install docker -y
 sudo systemctl restart docker.service
 sudo systemctl enable docker.service
 sudo usermod -a -G docker ec2-user
+```
 
 
-
-
-Step 2:
-
-Install Compose
+## Step 2: Install Compose
 
 
 Download the necessary files from github and provide execute privileges
+```sh
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.6.0/docker-compose-linux-x86_64 -o /usr/bin/docker-compose
 sudo chmod +x /usr/bin/docker-compose
+```
 
 We can then use the following command to see the compose version.
+```sh
 docker-compose version
-
+```
 ![image](https://user-images.githubusercontent.com/120683482/216138213-d1475f8a-928a-4209-bdea-a2358e437df9.png)
 
+## Step 3:
 
 Create a project directory, create a docker-compose.yml file and download a sample HTML website
-
+```sh
 mkdir compose-project; cd compose-project; 
 git clone https://github.com/sreenidhiramachandran/html_website_using_docker_compose.git
-
+```
+```sh
 wget https://www.tooplate.com/zip-templates/2121_wave_cafe.zip; unzip 2121_wave_cafe.zip; mv 2121_wave_cafe website; rm 2121_wave_cafe.zip;
+```
 
+## Step 4: Create compose file
+
+The Compose file is a YAML file defining version, services, networks, volumes, configs and secrets. 
+
+Here, we are bind mounting the volume. 
+```sh
+vi docker-compose.yml
+```
+```sh
+services:
+  webserver:
+   
+    image: httpd:alpine
+    container_name: sample_website
+    restart: always
+    networks:
+      - mynetwork
+    ports:
+      - "8080:80"
+    volumes:
+      - "./website:/usr/local/apache2/htdocs/"
+
+networks:
+  mynetwork:
+```
+We can check the syntax using the below command.
+```sh
+docker-compose config
+```
+
+## Step 5: Start services
+
+Using the below command, we start all the services defined in docker-compose.yml. In detached mode (-d), compose exits after starting the containers, but the containers continue to run in the background.
+
+```sh
 [ec2-user@ip-172-31-45-117 compose-project]$ docker-compose up -d
+```
 ![image](https://user-images.githubusercontent.com/120683482/216138958-740a3f0b-624c-4635-9a9e-b423143936f0.png)
 
 
