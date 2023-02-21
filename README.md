@@ -4,8 +4,10 @@
 Docker compose is a tool for defining and running multi-container Docker applications. With Compose, we use a yaml file to configure the application’s services. 
 
 
-Features
-
+## Features of Docker Compose
+- Single host deployment - This means you can run everything on a single piece of hardware
+- Quick and easy configuration - Due to YAML scripts
+- High productivity - Docker Compose reduces the time it takes to perform tasks
 
 ## Step 1: Install docker
 ```sh
@@ -82,17 +84,27 @@ Using the below command, we start all the services defined in docker-compose.yml
 ![image](https://user-images.githubusercontent.com/120683482/216138958-740a3f0b-624c-4635-9a9e-b423143936f0.png)
 
 
-$ docker-compose ps
+Using the below command, we can list the container created using docker-compose. 
+>The contaioner created using docker-compose will be listed only if we run the ps command from the project directory.
 
+```sh
+$ docker-compose ps
+```
 ![image](https://user-images.githubusercontent.com/120683482/216139675-cc8ccc22-ea1f-406f-b702-32c7113d3147.png)
 
+Below command will list the container from any working directory. 
+
+```sh
 $ docker container ls -a
+```
 
 ![image](https://user-images.githubusercontent.com/120683482/216139835-1e406934-99ec-4587-ba91-8adec279c41b.png)
 
 
 
+>
 
-
+> ## Screenshot of website create using docker-compose
+>
 
 ![image](https://user-images.githubusercontent.com/120683482/216137757-4361fa72-dfce-4e11-862a-9abbfcb760ca.png)
