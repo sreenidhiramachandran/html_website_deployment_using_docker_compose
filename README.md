@@ -10,9 +10,11 @@ Docker compose is a tool for defining and running multi-container Docker applica
 - High productivity - Docker Compose reduces the time it takes to perform tasks
 
 ## Step 1: Install docker
+
+Install the package, start and enable the service. Also, I am adding 'ec2-user' to 'docker' group.
 ```sh
 sudo yum install docker -y
-sudo systemctl restart docker.service
+sudo systemctl start docker.service
 sudo systemctl enable docker.service
 sudo usermod -a -G docker ec2-user
 ```
