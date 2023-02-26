@@ -35,11 +35,13 @@ docker-compose version
 
 ## Step 3:
 
-Create a project directory, create a docker-compose.yml file and download a sample HTML website
+Create a project directory, download the project files using git clone and move them to the project directory. 
 ```sh
 mkdir compose-project; cd compose-project; 
 git clone https://github.com/sreenidhiramachandran/html_website_using_docker_compose.git
+mv html_website_using_docker_compose/* .
 ```
+Download a sample HTML website and place them under a folder name 'website'
 ```sh
 wget https://www.tooplate.com/zip-templates/2121_wave_cafe.zip; unzip 2121_wave_cafe.zip; mv 2121_wave_cafe website; rm 2121_wave_cafe.zip;
 ```
